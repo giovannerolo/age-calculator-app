@@ -1,0 +1,18 @@
+.container-date {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.date {
+  display: flex;
+  font-family: Poppins;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 3.5rem;
+  color: hsl(0, 0%, 8%);
+}
+
+.number-date {
+  color: hsl(259, 100%, 65%);
+}
