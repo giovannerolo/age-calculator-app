@@ -15,4 +15,14 @@
 
 .number-date {
   color: hsl(259, 100%, 65%);
+  margin-right: 10px;
+}
+
+@media (max-width: 520px) {
+  .container-date {
+    margin-top: 45px;
+  }
+  .date {
+    font-size: 3rem;
+  }
 }
