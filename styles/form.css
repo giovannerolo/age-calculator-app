@@ -25,7 +25,7 @@ body {
   width: 600px;
   height: 475px;
   border-radius: 15px 15px 27.5% 15px;
-  /* box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .container-form {
@@ -130,7 +130,7 @@ body {
 .submit:hover,
 .submit:active {
   background-color: hsl(259, 100%, 65%);
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .imagem-icon {
