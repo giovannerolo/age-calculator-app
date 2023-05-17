@@ -1,42 +1,40 @@
-const button = document.getElementsByClassName("submit");
+function calculateAge() {
+  const day = document.getElementById("day").value;
+  const month = document.getElementById("month").value;
+  const year = document.getElementById("year").value;
 
-const numberYears = document.getElementById("number-years");
-const numberMonth = document.getElementById("number-month");
-const numberDay = document.getElementById("number-days");
+  const currentDate = new Date();
 
-function handleClick(e) {
-  e.preventDefault();
-  let day = document.getElementById("day");
-  let month = document.getElementById("month");
-  let year = document.getElementById("year");
+  const birthDate = new Date(year, month - 1, day);
 
-  const dataD = +day.value;
-  const dataM = +month.value;
-  const dataY = +year.value;
+  const difference = currentDate - birthDate;
 
-  const dataAtual = new Date();
-  if (dataD > 31 || dataD === 0 || dataD === null) {
-    day.style.borderColor = "red";
-    document.getElementsByClassName("labelD")[0].style.color = "red";
-  }
-  if (dataM > 12 || dataM === 0 || dataM === null) {
-    month.style.borderColor = "red";
-    document.getElementsByClassName("labelM")[0].style.color = "red";
-  }
-  if (dataY > +dataAtual.getFullYear() || dataY === 0 || dataY === null) {
-    year.style.borderColor = "red";
-    document.getElementsByClassName("labelY")[0].style.color = "red";
-  }
+  const age = {};
+  age.year = Math.floor(difference / (365.25 * 24 * 60 * 60 * 1000));
+  age.month = Math.floor(
+    (difference % (365.25 * 24 * 60 * 60 * 1000)) /
+      (30.44 * 24 * 60 * 60 * 1000)
+  );
+  age.day = Math.floor(
+    (difference % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000)
+  );
 
-  if (dataD) {
-    document.getElementById("number-day").innerText = dataD;
+  if (day < 1 || day > 31) {
+    document.getElementById("day").style.borderColor = "red";
   }
-  if (dataM) {
-    document.getElementById("number-month").innerText = dataM;
+  if (month < 1 || month > 12) {
+    document.getElementById("month").style.borderColor = "red";
   }
-  if (dataY) {
-    document.getElementById("number-year").innerText = dataY;
+  if (year < 1900 || year > new Date().getFullYear()) {
+    document.getElementById("year").style.borderColor = "red";
+  } else {
+    document.getElementById("number-year").textContent = age.year;
+    document.getElementById("number-month").textContent = age.month;
+    document.getElementById("number-day").textContent = age.day;
   }
 }
 
-button[0].addEventListener("click", handleClick);
+document.querySelector(".form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  calculateAge();
+});
